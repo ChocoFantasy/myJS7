@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //巢狀檢查練習，如需要反覆輸入請使用在迴圈內。
+        while (true) {
+            //
+            var uid = window.prompt('請輸入帳號');
+            //帳號按了取消
+            if (uid == null) {
+                //console.log('帳號按了取消，即將結束');
+                alert('帳號按了取消，即將結束');
+                break;
+            } else {
+                //到了這裡代表沒有取消
+                var upw = window.prompt('請輸入密碼');
+                //密碼按了取消
+                if (upw == null) {
+                    //console.log('密碼按了取消，即將結束');
+                    alert('密碼按了取消，即將結束');
+                    break;
+                } else {
+                    //多層條件檢查
+                    if (uid == 'admin' && upw == '1234') {
+                        //console.log('帳密正確');
+                        //使用迴圈只能使用 alret 
+                        alert('帳密正確');
+                    } else if (uid == 'admin' && upw != '1234') {
+                        //console.log('密碼err');
+                        alert('密碼err');
+                    } else if (uid !== 'admin' && upw == '1234') {
+                        //console.log('帳號err');
+                        alert('帳號err');
+                    } else if (uid !== 'admin' && upw !== '1234') {
+                        //console.log('帳密err');
+                        alert('帳密err');
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
