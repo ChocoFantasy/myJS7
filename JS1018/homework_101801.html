@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account and password verification</title>
+</head>
+
+<body>
+    <!--重新整理按鈕-->
+    <button type="button" onClick="window.location.reload()">
+        Reload Page
+    </button>
+
+    <script>
+        //題目：帳:admin 密碼:1234 如帳號密碼任何一個錯誤，請協助驗證。
+        while (true) {
+            var Account = window.prompt('請輸入帳號');
+            // 檢查帳號
+            //帳號取消
+            if (Account === null) {
+                window.alert('輸入帳號時，按了取消即將結束');
+                break;
+            } else if (Account.trim() === '') {
+                //帳號空值
+                window.alert('帳號未輸入任何值，請重新輸入');
+                continue;
+            } else {
+                // 檢查密碼
+                var password = window.prompt('請輸入密碼');
+                //密碼取消
+                if (password === null) {
+                    window.alert('輸入密碼時，按了取消即將結束');
+                    break;
+                } else if (password.trim() === '') {
+                    //密碼空值
+                    window.alert('密碼未輸入任何值，請重新輸入');
+                    continue;
+                } else {
+                    // 處理帳號和密碼
+                    if ((Account == 'admin') && (password == '1234')) {
+                        window.alert('帳密OK');
+                    } else if ((Account != 'admin') && (password == '1234')) {
+                        window.alert('帳號err');
+                    } else if ((Account == 'admin') && (password !== '1234')) {
+                        window.alert('密碼err');
+                    } else if ((Account !== 'admin') && (password !== '1234')) {
+                        window.alert('帳號密碼err');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
