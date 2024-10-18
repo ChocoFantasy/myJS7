@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <hr>
+    <!--CTRl + D 可以同時編輯-->
+    <script>
+        //for迴圈
+        //for (var 變數名=起始值;執行迴圈的條件;迴圈起始變數增減值){...}
+
+        for (var i = 0; i <= 4; i++) {
+            document.write('午安' + i + '<br>');
+        }
+        document.write('<hr>'); //水平線
+
+        // while 迴圈 (無限定次數)
+        // 避免造成「無窮迴圈」
+
+        var i = 0; //開始
+        while (i <= 4) {
+            document.write('晚安' + i + '<br>');
+            i++; //如果沒有這行，i 會進入無窮迴圈，i 永遠是初始值
+        }
+        document.write('<hr>'); //水平線
+        
+        //do while 迴圈 (無限定次數)
+        var i = 0; //
+        do {
+            document.write('早安' + i + '<br>');
+            i++;
+        } while (i <= 4); //請注意要加分號
+
+    </script>
+</body>
+
+</html>

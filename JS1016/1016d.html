@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--重新整理按鈕-->
+    <button type="button" onClick="window.location.reload()">
+        Reload Page
+    </button>
+    <script>
+        //1.請輸入單價、數量後，算出小計
+        //2.小計 >= 1000以上，運費為0 ;否則運算為小計的 1%
+
+        //單價：500
+        //數量：20
+        //小計：10000
+        //運費：0
+
+        //單價：500
+        //數量：1
+        //小計：500
+        //運費：5 (500*0.01)
+
+        var Intprice = Number(window.prompt('請輸入單價'));
+        var quantity = Number(window.prompt('請輸入數量'));
+        var tot = 0;
+
+        //邏輯運算子 交集 && 聯集 ||
+        //先判斷是否為數值，並且先算好小計跟運費
+        if (isNaN(Intprice) || isNaN(quantity)) {
+            console.log('單價或數量err');
+        } else {
+            //小計 需要運算再拿進來算的好處是不占記憶體，效能會較好
+            var tot = Intprice * quantity;
+            //運費
+            var dis = 0;
+            if (tot < 1000) {
+                dis = tot * 0.01; //經過判斷運費直接被更動。
+            }
+            //輸出結果
+            console.log('單價：' + Intprice);
+            console.log('數量：' + quantity);
+            console.log('小計：' + tot);
+            console.log('運費：' + dis);
+            console.log(`總計：${tot + dis}`);
+        }
+
+
+        // var Subtot = Intprice * quantity //小計
+        // var freight = (Subtot * 0.01) //預設運費
+
+
+        // if (isNaN(Number(Subtot))) {
+        //     console.log('輸入的內容無法計算');
+        // } else {
+        //     if (Subtot >= 1000 ) {
+        //         console.log(`小計：$` + Subtot + `，運費：$0`);
+        //     } else if (Subtot <= 1000) {
+        //         console.log(`小計：` + Subtot + `，運費：$` + freight);
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

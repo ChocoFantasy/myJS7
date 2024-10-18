@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認識變數</title>
+</head>
+
+<body>
+    <!--算術運算子，
+    加+
+    減-
+    乘*
+    /二數相除(取商數)
+    %二數相除(取餘數) 
+    變數不用宣告可以直接使用但是不建議
+    -->
+  
+    <script>
+        var a = 5;
+        var b = 3;
+        //var c = window.prompt('請輸入您要的運算子:+ - * / %',"+");
+        //prompt 是 window 物件，彈出視窗。如果按取消換變成 null 空值。
+        //undefied 是沒有定義，也類似為空值。
+        //檢查變數 c ，是否為 + 
+        // == (不嚴謹的比較) => 等號的左右二邊的資料型態可以不同
+        // === (嚴謹的比較) =>等號的左右二邊的資料型態必須相同
+        //break 是跳出循環
+        if (c === '+') {
+            document.write(`${a}+${b}=${a + b}<br>`);
+        } else if (c === '-') {
+            document.write(`${a}-${b}=${a - b}<br>`);
+        } else if (c === '*') {
+            document.write(`${a}*${b}=${a * b}<br>`);
+        } else if (c === '/') {
+            document.write(`${a}/${b}=${a / b}<br>`);
+        } else if (c === '%') {
+            document.write(`${a}%${b}=${a % b}<br>`);
+        } else {
+            //以上皆否的結果
+            document.write(c + '的運算符號err。');
+        }
+
+
+        // document.write(a + '+' + b + '=' + (a + b)+ '<br>');
+        // document.write(a + '-' + b + '=' + (a - b)+ '<br>');
+        // document.write(a + '/' + b + '=' + (a / b)+ '<br>');
+        // document.write(a + '%' + b + '=' + (a % b));
+
+        //字串字面值，必須使用反引號包起來 ``，變數使用${變數名稱或者運算式}，其餘內容會直接顯示。
+        // document.write(`${a}+${b}=${a + b}<br>`);
+        // document.write(`${a}-${b}=${a - b}<br>`);
+        // document.write(`${a}*${b}=${a * b}<br>`);
+        // document.write(`${a}/${b}=${a / b}<br>`);
+        // document.write(`${a}%${b}=${a % b}`);
+
+    </script>
+</body>
+
+</html>

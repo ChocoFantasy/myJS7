@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--遞增遞減運算子-->
+    <script>
+        //請使用輸入視窗(prompt)，來輸入任意值，並且檢查是不是偶數?
+        var num = window.prompt('請輸入任意數字，檢查是否為偶數');
+
+        //typeof(變數名)=>檢測資料型別
+        //文字方塊預設內容是 String 字串
+        //Number(值) => 字串轉數值(保留小數)
+        //parseInt(值) => 字串轉數值(只保留整數，小數直接去掉)
+
+        //console.log(Number(num));//42.4
+        //console.log(parseInt(num));//42
+        //isNaN 判斷是否為NaN
+        if (isNaN(Number(num))) {
+            console.log(num + '非數值無法判定');
+        } else {
+            if ((num % 2) === 0) {
+                console.log(num + `是偶數`);
+            }
+            else if ((num % 2) >= 0) {
+                console.log(num + '是奇數');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

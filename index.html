@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account and password verification</title>
+</head>
+
+<body>
+
+    <script>
+        //帳:admin 密碼:1234 如帳號密碼任何一個錯誤，請協助在頁面上顯示。
+
+        var Account = window.prompt('請輸入帳號');
+        var password = Number(window.prompt('請輸入密碼'));
+
+
+        //取消
+        if (Account == null) {
+            window.alert('您按了取消');
+        }
+
+        if (password == null) {
+            window.alert('您按了取消');
+        }
+        //驗證內容
+       // if (Account.trim() == '') {
+         //   window.alert('不能沒有內容');
+        //};
+        //if (password.trim() == '') {
+          //  window.alert('不能沒有內容');
+        //};
+
+        //輸出結果
+        if ((Account == 'admin') && (password == '1234')) {
+            document.write('帳密OK');
+        } else if ((Account != 'admin') && (password == '1234')) {
+            document.write('帳號err');
+        } else if ((Account == 'admin') && (password !== '1234')) {
+            document.write('密碼err');
+        } else if ((Account !== 'admin') && (password !== '1234')) {
+            document.write('帳號密碼err');
+        }
+
+
+    </script>
+</body>
+
+</html>

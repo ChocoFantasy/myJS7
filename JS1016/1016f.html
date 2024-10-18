@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //不斷彈出式輸入視窗，直到「取消」結束
+        //true(真) false(假) 布林值
+        var count = 0;
+        var pass = 0;
+        var fail = 0;
+        var sum = 0;
+        var avg = 0;
+        //var inputs = []; // 用來儲存使用者的輸入
+        //這裡用 true 無條件就可以進入的意思
+        while (true) {
+            var keyin = window.prompt('請輸入分數');
+            //判斷檢查是否按了取消
+            if (keyin == null) {
+                break; //脫離迴圈到迴圈結尾的下一行
+            }
+            //判斷是否有內容，不可為空值
+            //去除空白後，是否有內容
+            //trim() => 去除資料前後的空白(但字與字之間的空白，不會去除)
+
+            if (keyin.trim() == '') {
+                alert('不能沒有內容，請重新輸入');
+                continue; // 略過之後的程式碼，重新回到迴圈開始的位置
+            };
+
+            //判斷是否為數字
+            if (isNaN(Number(keyin))) {
+                alert('err！非數字內容，請重新輸入');
+                continue;
+            }
+
+            //將輸入的分數轉為數值，如果前面先轉會有一些狀況無法判斷。
+            keyin = Number(keyin);
+
+            //當輸入空值、非數字，會直接重新跑迴圈，所以不會被累加。
+            //只有有輸入正確值的才會被累加。
+
+            //及格人數
+            if (keyin >= 60) {
+                pass++;
+            } else {
+                //不及格人數
+                fail++;
+            }
+            //總分
+            sum = sum + keyin;
+            //總平均
+            avg = sum / (pass + fail);
+            //次數加一
+            count++;//次數加一
+        }
+
+        window.alert(
+            '輸入結束！共輸入了 ' + count + ' 次\n' +
+            '及格人數：' + pass + ' 人\n' +
+            '不及格人數：' + fail + ' 人\n' +
+            '總分：' + sum + ' 分\n' +
+            '總平均：' + avg.toFixed(2) + ' 分(小數第2位)'
+        );
+
+        //輸入
+        //100
+        //20
+        //50
+        //取消
+        //---------------
+        //輸出
+        //及格人數：1 人
+        //不及格人數：2人
+        //總分：170 分
+        //總平均：56.67 分　（小數２位）
+        //console 和 window 如果要跳行請使用 "\n"
+        //window.alert('輸入結束您輸入了:' + inputs.join(','));
+        //inputs.join(這裡輸入要分隔的符號)
+        //inputs.push(這裡輸入要加入到陣列的內容,"再加入")
+        //window.alert(keyin); 測試語法
+        //console.log(keyin); //可以先看裡面的值是甚麼
+    </script>
+</body>
+
+</html>
