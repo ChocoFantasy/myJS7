@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 呼叫函式 -->
+    <button onclick="fun1()">無參數，無傳回值</button>
+    <button onclick="alert(fun2())">無參數，有傳回值</button> <!-- 有傳回值就會需要，有可以輸出的地方 -->
+    <button onclick="fun3(5,3)">有參數，無傳回值</button>
+    <button onclick="alert(fun4(3,2))">有參數，有傳回值</button>
+
+    <script>
+        // 無參數，無傳回值
+        // 不會自己馬上執行，等待被呼叫。想像function 是工具箱
+        // 通常使用者按了按鈕，才會出現的效果(等待被呼叫)，不想要直接執行。
+        function fun1() {
+            console.log('Hi');
+        }
+        document.write('<br>');
+        // 無參數，有傳回值
+        // 必須要有接收者
+        function fun2() {
+            return 'Hello'; //function　被呼叫時，回傳值需要有回傳回來的接收者，如按鈕()代表只有呼叫而已。
+        }
+
+        // 呼叫fun2
+        document.write(fun2());
+        // 有參數，無傳回值
+        function fun3(a, b) {
+            console.log(a + b);
+        }
+        // 有參數，有傳回值
+        function fun4(a, b) {
+            return a + b; //把 a,b 加起來
+        }
+
+        //練習：建立一個函式，帶有參數(n1,n2,symbol),最後要回傳依據"運算符號symbol"做計算。
+
+        function fun5(n1, n2, symbol) {
+            //   if (symbol == '+') {
+            //        return n1 + n2; //把 a,b 加起來
+            //    } else if (symbol == '-') {
+            //        return n1 - n2; //把 a,b 減起來
+            //    } else if (symbol == '*') {
+            //        return n1 * n2; //把 a,b 乘起來
+            //    } else if (symbol == '/') {
+            //        return n1 / n2; //把 a,b 除起來
+            //    }
+
+            var result = 0; //預設值空字串或者預設 0
+            switch (symbol) {
+                case '+':
+                    result = n1 + n2;
+                    break;
+                case '-':
+                    result = n1 - n2;
+                    break;
+                case '*':
+                    result = n1 * n2;
+                    break;
+                case '/':
+                    result = n1 / n2;
+                    //取整數是 to.Fixed(0)
+                    break;
+                default:
+                    result = 'err'; //都沒抓到的結果會err
+            }
+            return result;
+        }
+
+        document.write('<br>');
+        //呼叫練習:fun5 的函示
+        var ans = fun5(10, 3, '+'); //存下處理判斷後的結果。
+        if (ans !== 'err') {
+            if (ans / 2 !== 0) {
+                document.write(`${ans} 是奇數`);
+            } else {
+                document.write(`${ans} 不是奇數`);
+            }
+        } else {
+            document.write(fun5(5, 3, '@'));
+        }
+
+
+    </script>
+</body>
+
+</html>

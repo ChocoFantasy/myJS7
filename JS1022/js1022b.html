@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        var a = 11;
+        //a=11; 0~10
+        while (a < 10) {
+            a++;
+        }
+        console.log(a); //a=12
+
+       
+        var b = 11;
+        do {
+            //b++; 0~11
+            b = b + 1
+        } while (b < 10); //不成立才跳出迴圈。 當 b=11 ，因大於 10 
+
+        console.log(b); //b=12
+        */
+        //用 while..do 寫的話
+
+        //不斷彈出視窗 while..
+
+        while (true) {
+            var score = window.prompt('請輸入分數');
+
+            //按下取消，即跳出迴圈
+            if (score == null) {
+                break;
+            }
+        }
+
+        //方法二：不斷彈出視窗 do while 
+
+        do {
+            var score = window.prompt('請輸入分數');
+
+            //按下取消，即跳出迴圈
+            //if (score == null){
+            //    break;
+            //}
+        } while (score != null)
+
+        //方法三：用 while..do 寫的話
+        var score = '';
+        while (score != null) {
+            score = prompt('請輸入分數');
+        }
+
+        //方法四：for 迴圈(有限制次數，基本上無法無限，但以下為特殊寫法)
+        var score = '';
+        for (var a = 1; score != null; a++) {
+            var score = prompt('請輸入分數')
+        }
+
+        //方法五：for 迴圈
+        for (var a = 1; a < 100; a++) {
+            var score = prompt('請輸入分數')
+            if (score == null) {
+                break;
+            }
+        }
+        /*
+        目的：
+        建立者
+        */
+
+    </script>
+</body>
+
+</html>

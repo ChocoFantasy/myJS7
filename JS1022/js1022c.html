@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //題目：1+2+3+..10= 且更動數值可以更著回答變動
+        //s = s + 1; //s=s+1=1
+        //s = s + 2; //s=1+2=3
+        //s = s + 3; //s=3+3=6
+
+        var s = 0;
+        var max = 50;
+        for (var a = 0; a <= max; a++) {
+            s = s + a
+        }
+        console.log(`1~${max}的合計為=${s}`);
+
+        //1-100 中 3 的倍數合？（遞增）
+        //我的解法
+        var s = 0;
+        var max = 100;
+        for (var a = 1; a <= max; a++) {
+            if (a % 3 === 0) { //取餘數
+                s = s + a;//不需要寫else，不成立就會跳出。
+            }
+        }
+        console.log(`1~${max} 中 3 的倍數合？（遞增）=${s}`);
+
+        //100-1 中 3 的倍數合？（遞減）
+
+        var s = 0;
+        var max = 100;
+        for (var a = max; a >= 1; a--) {
+            if (a % 3 == 0) {
+                s = s + a;
+            }
+        }
+        console.log(`${max}~1 中 3 的倍數合？（遞減）=${s}`);
+
+    </script>
+</body>
+
+</html>
