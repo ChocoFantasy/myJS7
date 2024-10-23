@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="myP1">我是段落</p>
+    <button class="btn1" onclick="charge2()">更換段落內容</button>
+
+    <script>
+      //方法一:使用正常 function
+      function charge() {
+        //alert('hi'); 測試有沒有抓到值用
+        //取得段落myP1
+        var p1 = document.getElementById("myP1");
+        //更改內容文字
+        p1.innerHTML = "內容已更改1";
+      }
+
+      //方法二：匿名函式
+      var charge2 = function () {
+        //取得段落myP1
+        var p1 = document.getElementById("myP1");
+        //更改內容文字
+        p1.innerHTML = "內容已更改2";
+      };
+
+      //方法三：箭頭函式
+      var charge3 = () => {
+        //取得段落myP1
+        var p1 = document.getElementById("myP1");
+        //更改內容文字
+        p1.innerHTML = "內容已更改3";
+      };
+    </script>
+
+    <p id="entryTime"></p>
+    <button onclick="getTime()">取得日期時間</button>
+    <script>
+      function getTime() {
+        // 取得顯示日期時間的目標
+        var entryTime = document.getElementById("entryTime");
+        // 顯示日期時間在目標上 new 是一個類別,
+        //entryTime.innerHTML = new Date().toLocaleString(); //日期時間
+        entryTime.innerHTML = new Date().toLocaleDateString(); //只取得日期
+        entryTime.innerHTML = new Date().toLocaleTimeString(); //只取得時間
+      }
+    </script>
+    <!-- <p id="myP2">1</p>
+    <button id="btn2">+</button>
+    <button id="btn3">-</button> -->
+  </body>
+</html>

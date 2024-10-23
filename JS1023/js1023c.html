@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--按+加一，按-減一。-->
+    <p id="no">1</p>
+
+    <p>第一個方法：兩個 function</p>
+    <button onclick="add()">+1</button>
+    <button Onclick="Sub()">-1</button>
+
+    <p>第二個方法：一個 function (用數值'+1'或'-1')運算</p>
+    <button onclick="AddSub(1)">+1</button>
+    <button Onclick="AddSub(-1)">-1</button>
+
+    <p>第三個方法：一個 function (用'+'或'-')運算</p>
+    <button onclick="plusminus('+')">+1</button>
+    <button Onclick="plusminus('-')">-1</button>
+    <br>
+    <button onclick="resetValue()">重置</button>
+
+    <script>
+      //方法一：用兩個 function 做
+      // +1
+      function add() {
+        //取得段落no，但取得的是 DOM 元素
+        var no = document.getElementById("no");
+        //但取得的id:no是 DOM 元素，而非數值需要再轉成整數。
+        //typeof(變數或資料或運算式) => 查看資料類型
+        console.log(typeof no.innerHTML);
+        var Int = parseInt(no.innerHTML); //轉成整數
+        Int = Int + 1;
+        //更改數值
+        no.innerHTML = Int;
+      }
+      // -1
+      function Sub() {
+        //取得段落no
+        var no = document.getElementById("no");
+        //var Int = parseInt(no.innerHTML);
+        //Int = Int - 1;
+        //直接在輸出列，更改成數值後先加一，再改回字串。
+        no.innerHTML = String(Number(no.innerHTML) - 1);
+      }
+
+      //方法二:用一個 function 直接用裡面的運算符號做加減
+
+      function AddSub(valueChange) {
+        // 取得段落 no 的數字並轉換成整數
+        var no = document.getElementById("no");
+        var Int = parseInt(no.innerHTML);
+        // 加上或減去指定的數值
+        Int = Int + valueChange;
+        // 更改段落數值
+        no.innerHTML = Int;
+      }
+
+      //方法三：一個 function (用'+'或'-')運算
+      function plusminus(op) {
+        var no = document.getElementById("no");
+
+        if (op == "+") {
+          no.innerHTML = String(Number(no.innerHTML) + 1);
+        } else if (op == "-") {
+          no.innerHTML = String(Number(no.innerHTML) - 1);
+        }
+      }
+      // 將數值重置為原始值 1
+      function resetValue() {
+      
+        var no = document.getElementById("no");
+        no.innerHTML = 1;
+      }
+    </script>
+
+    <!--使用監聽事件的方式來呼叫函式-->
+    <br /><br /><br />
+    <button id="btn1">SayHi</button>
+
+    <script>
+      var btn1 = document.getElementById("btn1");
+      //監聽指令方法一：
+      //btn1.addEventListener(聽到甚麼動作後,呼叫函式());
+      btn1.addEventListener("click", sayHi());
+
+      function sayHi() {
+        console.log("Hi");
+      }
+
+      //監聽指令方法二：箭頭函式處理
+      //這個方法可以先寫動作後，再呼叫函式並回傳值
+      btn1.addEventListener('click',() => {
+        console.log("Hi");
+      });
+
+    </script>
+  </body>
+</html>

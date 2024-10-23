@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    算出BMI：
+    <p id="myP2"></p>
+
+    <button class="btn2" onclick="BMI()">依照身高體重，計算BMI</button>
+
+    <script>
+      //2. 建立一個函式，傳參數 身高、體重，算出BMI，並回傳BMI結果
+      // 算出 BMI = 體重(公斤) / 身高2(公尺2)
+      // 回傳BMI 結果在頁面上的段落2
+      // BMI=? 狀態：(體重過輕／正常範圍／異常範圍)=> 檢查後顯示
+
+      function BMI() {
+        //計算
+        var height = 160;
+        var weight = 70;
+        //BMIresult 存放計算結果
+        //將身高換算成公尺
+        height = height / 100;
+        //計算BMI，BMIresult 存放結果
+        var BMIresult = (weight / (height * height)).toFixed(2);
+
+        //驗證狀態(體重過輕／正常範圍／異常範圍)
+        //正常範圍：18.5 <= BMI < 24
+        //過輕：BMI < 18.5
+        //過重：24 <= BMI < 27
+        //輕度肥胖：27 <= BMI < 30
+        //中度肥胖：30 <= BMI < 35
+        //重度肥胖：BMI >= 35
+
+        //存放驗證結果
+        var state = "";
+
+        if (BMIresult >= 18.5 && BMIresult < 24) {
+          state = "正常範圍";
+        } else if (BMIresult < 18.5) {
+          state = "體重過輕";
+        } else if (BMIresult >= 24 && BMIresult < 27) {
+          state = "體重過重";
+        } else if (BMIresult >= 27 && BMIresult < 30) {
+          state = "輕度肥胖";
+        } else if (BMIresult >= 30 && BMIresult < 35) {
+          state = "中度肥胖";
+        } else if (BMIresult >= 35) {
+          state = "重度肥胖";
+        }
+
+        //取得段落myP2
+        var P2 = document.getElementById("myP2");
+
+        //更改內容文字
+        P2.innerHTML = "方法一：BMI：" + BMIresult + "，狀態：" + state;
+      }
+
+      //方法二：匿名函式
+      var BMI2 = function () {
+        //計算
+        var height = 160;
+        var weight = 70;
+        //BMIresult 存放計算結果
+        //將身高換算成公尺
+        height = height / 100;
+        //計算BMI，BMIresult 存放結果
+        var BMIresult = (weight / (height * height)).toFixed(2);
+
+        //驗證狀態(體重過輕／正常範圍／異常範圍)
+        //正常範圍：18.5 <= BMI < 24
+        //過輕：BMI < 18.5
+        //過重：24 <= BMI < 27
+        //輕度肥胖：27 <= BMI < 30
+        //中度肥胖：30 <= BMI < 35
+        //重度肥胖：BMI >= 35
+
+        //存放驗證結果
+        var state = "";
+
+        if (BMIresult >= 18.5 && BMIresult < 24) {
+          state = "正常範圍";
+        } else if (BMIresult < 18.5) {
+          state = "體重過輕";
+        } else if (BMIresult >= 24 && BMIresult < 27) {
+          state = "體重過重";
+        } else if (BMIresult >= 27 && BMIresult < 30) {
+          state = "輕度肥胖";
+        } else if (BMIresult >= 30 && BMIresult < 35) {
+          state = "中度肥胖";
+        } else if (BMIresult >= 35) {
+          state = "重度肥胖";
+        }
+
+        //取得段落myP2
+        var P2 = document.getElementById("myP2");
+
+        //更改內容文字
+        P2.innerHTML = "方法二：BMI：" + BMIresult + "，狀態：" + state;
+      };
+
+      //方法三：箭頭函式
+      var BMI3 = () => {
+        //計算
+        var height = 160;
+        var weight = 70;
+        //BMIresult 存放計算結果
+        //將身高換算成公尺
+        height = height / 100;
+        //計算BMI，BMIresult 存放結果
+        var BMIresult = (weight / (height * height)).toFixed(2);
+
+        //驗證狀態(體重過輕／正常範圍／異常範圍)
+        //正常範圍：18.5 <= BMI < 24
+        //過輕：BMI < 18.5
+        //過重：24 <= BMI < 27
+        //輕度肥胖：27 <= BMI < 30
+        //中度肥胖：30 <= BMI < 35
+        //重度肥胖：BMI >= 35
+
+        //存放驗證結果
+        var state = "";
+
+        if (BMIresult >= 18.5 && BMIresult < 24) {
+          state = "正常範圍";
+        } else if (BMIresult < 18.5) {
+          state = "體重過輕";
+        } else if (BMIresult >= 24 && BMIresult < 27) {
+          state = "體重過重";
+        } else if (BMIresult >= 27 && BMIresult < 30) {
+          state = "輕度肥胖";
+        } else if (BMIresult >= 30 && BMIresult < 35) {
+          state = "中度肥胖";
+        } else if (BMIresult >= 35) {
+          state = "重度肥胖";
+        }
+
+        //取得段落myP2
+        var P2 = document.getElementById("myP2");
+
+        //更改內容文字
+        P2.innerHTML = "方法三：BMI：" + BMIresult + "，狀態：" + state;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!--算出圓面積、BMI，老師教學版本-->
+
+    <p id="p1">圓面積</p>
+    <p id="p2">BMI</p>
+
+    <script>
+       //只要 呼叫 function 便直接呼叫 area(r),回傳變數 r ，這個 r 可以依照使用者更改數值。
+       function area(r) {
+         //Math.PI 是圓周率
+         //Math.pow(數值,次方數) 次方
+         return (Math.PI * Math.pow(r,2)).toFixed(2);
+       }
+       //取得id 叫 p1 的 <p> 元素
+       var p1 = document.getElementById("p1");
+       var inputR = 5;
+
+       //輸出
+       p1.innerHTML = `半徑:${inputR},圓面積:${area(inputR)}`;
+
+      //BMI//
+      function getBMI(h,w){
+         //BMI 結果傳送出去，並取小數點 1 位。
+         return (w/((h/100)*(h/100))).toFixed(1);
+      }
+
+
+       var myBmi = getBMI(157,50);
+      //取得顯示BMI結果的目標
+       var p2 =document.getElementById('p2');
+       //存放狀態的變數
+       var str1 ='';
+
+      //B
+      if (myBmi<18.5){
+        str1='體重過輕';
+      }else if (myBmi>=18.5 && myBmi <24){
+        str1='正常範圍';
+      }else if (myBmi>=24){
+        str1='異常範圍';
+      }
+
+      p2.innerHTML=`BMI=${myBmi}=> ${str1}`;
+    </script>
+  </body>
+</html>

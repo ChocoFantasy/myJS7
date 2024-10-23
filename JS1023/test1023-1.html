@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    算出圓面積：
+    <p id="myP1"></p>
+    <button class="btn1" onclick="calculate3()">依照半徑(r)，計算面積</button>
+
+    <script>
+      //1. 建立一個函式，傳參數 r
+      //輸入半徑(變數r)，算出面積=3.14 * r * r
+      //回傳面積結果在頁面上的段落1。
+      //半徑：?，圓面積：？
+
+      //方法一：
+      function calculate() {
+        //計算
+        var r = 5;
+        var area = 3.14 * r * r; //使用不同變數存放計算結果
+
+        //取得段落myP1
+        var P1 = document.getElementById("myP1");
+
+        //更改內容文字
+        P1.innerHTML =
+          "方法一：" + "半徑：" + r + "，圓面積：" + area.toFixed(3);
+      }
+
+      //方法二：匿名函式
+      var calculate2 = function () {
+        //計算
+        var r = 5;
+        var area = 3.14 * r * r; //使用不同變數存放計算結果
+
+        //取得段落myP1
+        var P1 = document.getElementById("myP1");
+
+        //更改內容文字
+        P1.innerHTML =
+          "方法二：" + "半徑：" + r + "，圓面積：" + area.toFixed(3);
+      };
+
+      //方法三：箭頭函式
+      var calculate3 = () => {
+        //計算
+        var r = 5;
+        var area = 3.14 * r * r; //使用不同變數存放計算結果
+
+        //取得段落myP1
+        var P1 = document.getElementById("myP1");
+
+        //更改內容文字
+        P1.innerHTML =
+          "方法三：" + "半徑：" + r + "，圓面積：" + area.toFixed(3);
+      };
+    </script>
+  </body>
+</html>
