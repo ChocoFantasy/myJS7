@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>陣列最大值與最小值</title>
+  </head>
+  <body>
+    <script>
+      //找出陣列中的最大值與最小值
+      var arr1 = [5, 60,true, 3,'123', 90, 33, 1, 100];
+      console.log(`處理前`);
+      console.log(arr1);
+
+      //去除非數值的陣列資料 ==> 保留數值的資料給 arr1
+      var arr2=[];//建立一個空陣列;
+      arr1 = arr1.filter((data) => {
+        if (typeof data ==="number"){
+          //如果是數值就丟還給 arr1 這個陣列中。
+          return data;
+        }
+      });
+      console.log(`處理後`);
+      console.log(arr2); //為了不破壞原本的陣列。將處理後裝在arr2
+
+      //預設不能是 0，不然最小值會永遠是 0 ;
+      //預設初始值為第一個。只要大於小於就會被max跟min取代。
+      var max = arr1[0];
+      var min = arr1[0];
+      //由於 0 已經被抓出來，就直接從位置 1 開始抓就好。
+        for (var i = 1; i < arr1.length; i++) {
+          //找出最大值
+          if (max < arr1[i]) {
+            max = arr1[i];
+          }
+          //找出最小值
+          if (min > arr1[i]) {
+            min = arr1[i];
+          }
+        }
+        document.write(`最大值：${max},最小值：${min}`);
+
+      //   //方法二 for of
+      //   for (var a of arr1) {
+      //     //如果最大，就看比有沒有比最小值小
+      //     if (max < a) {
+      //       max = a;
+      //     }else if (min > a) {
+      //       min = a;
+      //     }
+      //   }
+      //方法三 forEach
+
+      //   arr1.forEach((b) => {
+      //     if (max < b) {
+      //       max = b;
+      //     }else if (min > b) {
+      //       min = b;
+      //     }
+      //   });
+
+      //方法四 map 搭配箭頭函式
+      // arr1.map((c) => {
+      //   //只判斷是數字才進行處理
+      //   if (typeof c === "number") {
+      //     if (max < c) {
+      //       max = c;
+      //     } else if (min > c) {
+      //       min = c;
+      //     }
+      //   }
+      // });
+      
+      //document.write(max + ":是最大值" + "<br>" + min + ":是最小值");
+    </script>
+  </body>
+</html>

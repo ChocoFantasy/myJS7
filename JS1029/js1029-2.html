@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //顯示陣列中字串的值 => 資料辨識型別 typeof
+
+      var arr1 = [1, 2, 3, 4, 5, "12345", "654321"];
+
+      //了解答案是甚麼型別
+      //document.write(typeof arr1[5] + "<br>");
+
+      //方法一 for
+      for (let i = 0; i < arr1.length; i++) {
+        if (typeof arr1[i] === "string") {
+          document.write(arr1[i] + "是字串" + "<br>");
+        }
+      }
+
+      document.write("<hr>");
+      // 方法二 for of
+      //將 arr1 陣列中的每個元素逐一丟給 n，因此 n 本身就是每個元素的值（而非索引）。
+      //如果寫了arr1[n]，會讓程式誤以為 n 是陣列的索引位置，會錯誤的結果。
+      //n 不是位置，是陣列中的值。
+
+      for (var n of arr1) {
+        if (typeof n === "string") {
+          document.write(n + "是字串" + "<br>");
+        }
+      }
+      document.write("<hr>");
+      //方法三 forEach 搭配箭頭函式
+      //類似於 function getBooks(data)
+
+      //陣列名稱 => 值丟進去 b > 處理陣列參數。
+      arr1.forEach((b) => {
+        if (typeof b === "string") {
+          document.write(b + "是字串" + "<br>");
+        }
+      });
+
+      document.write("<hr>");
+
+      //方法四 map 搭配箭頭函式
+      arr1.map((c) => {
+        if (typeof c === "string") {
+          document.write(c + "是字串" + "<br>");
+        }
+      });
+    </script>
+  </body>
+</html>

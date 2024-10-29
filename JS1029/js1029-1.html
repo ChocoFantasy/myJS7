@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>陣列練習</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      //表格資料用到二維
+
+      //建立一維陣列
+      //空字串也可以佔一個空間
+      var books = ["HTML", "CSS", "JavaScript", "", 100, true];
+      for (var i = 0; i < 3; i++) {
+        console.log(books[i]);
+      }
+
+      // 讀取指定編的陣列值 => 陣列名稱[陣列編號]
+      //console.log(books[1]);
+      //console.log(books[6]); //避免超過索引範圍(陣列編號)，回傳undefined。
+
+      //改變陣列中現有的值
+      books[2] = "JS";
+      console.log(books[2]);
+      // 寫入陣列中不存在的編號是允許的
+      // 但只能寫在最後面
+      books[6] = "abc";
+      console.log(books[6]);
+
+      // 取得陣列長度
+      console.log(books.length);
+
+      // 方法一 for
+      for (let i = 0; i < books.length; i++) {
+        document.write(books[i] + "<br>");
+      }
+
+      document.write('<hr>');
+      // 方法二 for of
+      //迴圈(var n of 指向誰) => 有資料"指向誰"會逐一丟給 "變數n"，丟到沒有為止。
+
+      for(var n of books){
+        document.write(n);
+        document.write('<br>');
+      }
+      document.write('<hr>');
+      //方法三 forEach 搭配箭頭函式
+      //類似於 function getBooks(data)
+
+      //陣列名稱 => 值丟進去 b > 處理陣列參數。
+      books.forEach((b) => {
+        document.write(b);
+        document.write('<br>');
+      });
+      document.write('<hr>');
+      //方法四 map 搭配箭頭函式
+      books.map((c)=> {
+        document.write(c);
+        document.write('<br>');
+      });
+
+      
+
+    </script>
+  </body>
 </html>
