@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>猜數字遊戲</title>
+  </head>
+  <body>
+    <p>猜數字遊戲</p>
+    <p>　規則：猜數字（1-100），直到猜對為止</p>
+    <!-- 第1次：50 => 太小了（提示：50-100）
+        第2次：90 => 太大了（提示：50-90）
+        第3次：80 => 太大了（提示：50-80）
+        第4次：55 => 太小了（提示：55-80）
+        第5次：60 => 猜對了-->
+
+    <p id="ans">亂數值：</p>
+    <p id="result"></p>
+
+    <script>
+      //猜數字遊戲，先產生隨機數字
+      function getRandom(min, max) {
+        //取亂數
+        var a = Math.floor(Math.random() * max) + min;
+        //顯示亂數
+        console.log(`${min}~${max}之間的亂數值為:${a}`);
+        return a;
+      }
+      //
+      var bingo = getRandom(1, 100);
+      var ans = document.getElementById("ans");
+      var min = 1; // 初始的最小範圍
+      var max = 100; // 初始的最大範圍
+      var attempts = 0; // 記錄嘗試次數用
+
+      while (true) {
+        //寫迴圈彈出輸入視窗，來輸入值。
+        //檢查是否跟亂數值一樣
+        //可用 alert 先回答，最後再紀錄一次顯示出來
+
+        var input = prompt(`請輸入任意整數，目前可猜的範圍(${min}-${max})`);
+
+        // 檢查是否按了取消
+        if (input === null) {
+          alert("你取消了遊戲！");
+          ans.innerHTML = "遊戲已被取消。";
+          break;
+        }
+
+        // 先轉換為數字
+        input = Number(input);
+
+        // 檢查整數
+        if (typeof input !== "number" || !Number.isInteger(input)) {
+          alert("請輸入整數！");
+          continue;
+        }
+
+        // 將輸入值轉換為整數
+        input = parseInt(input);
+
+        // 檢查輸入的數字是否在指定範圍內
+        if (input < min || input > max) {
+          alert(`數字超出先前猜的範圍，請輸入 ${min} 到 ${max} 之間的數字`);
+          continue;
+        }
+
+        attempts++; //前面檢查都沒問題後，輸入一次後，直接紀錄。
+
+        if (input == bingo) {
+          alert(`猜對了！答案是${bingo}，總共猜了 ${attempts} 次`);
+          ans.innerHTML = `亂數值：${bingo}，總共猜了 ${attempts} 次`;
+          break;
+        } else if (input < bingo) {
+          alert(`${input} => 太小了（提示：${input}-${max}）`);
+          min = parseInt(input) + 1; // 更新下限數字
+        } else if (input > bingo) {
+          alert(`${input} => 太大了（提示：${min}-${input}）`);
+          max = parseInt(input) - 1; // 更新上限數字
+        }
+      }
+
+      //--------以下為筆記--------
+      //   亂數函數
+      //   var a = Math.random();
+      //   console.log(`原本的亂數值=> ${a}`);
+
+      //   無條件捨去小數
+      //   var b =Math.floor(a);
+      //   console.log(`無條件捨去小數 =>${b}`);
+
+      // 亂數的產生 => 只有在 0~1 之間的值，但不等於1。
+
+      //console.log(Math.floor(Math.random() * 3) + 1); //產生 1~3 亂數0-2 => 0+1, 1+1, 2+1
+      //console.log(Math.floor(Math.random() * 5) + 1); //產生 1~5 亂數 0-2 => 0+1, 1+1, 2+1,3+1,4+1
+      //console.log(Math.floor(Math.random() * 10) + 1); //產生1~10亂數 0-9
+    </script>
+  </body>
+</html>
