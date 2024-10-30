@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>產生亂數並排序</title>
+  </head>
+  <body>
+    <p id="ans">大樂透號碼：</p>
+    <button onclick="Go()">產生</button>
+    <!--重新整理按鈕-->
+    <button type="button" onClick="window.location.reload()">
+        重整
+    </button>
+    <script>
+          //產施大樂透號碼(不重複)
+          //亂數數字產生完後，遞增排序。開一個空陣列，用迴圈 push 亂數加進去，最後排序。
+
+          //includes 檢查是否 重複，如果重複 true 就重新再產一次。
+
+          //先產生隨機數字的function
+          //min:是起始值 max:亂數是最大值 亂數區間:min~max
+
+          //先產一個function，是專門產出大樂透區間的亂數
+          function getRandom() {
+            // a 裝著產生的亂數
+            var RandomN = Math.floor(Math.random() * 49 + 1);
+            return RandomN;
+          }
+
+          //宣告裝樂透數字的陣列;
+        var Lotto = [];
+        function Go() {
+          //讓迴圈跑七次，要產七個數字，並且用 push 裝進陣列中。
+          while (Lotto.length < 7) {
+            // 取得亂數，將亂數放進 r 中
+            var r = getRandom();
+            // 若數字不重複，則推入陣列
+            if (Lotto.includes(r)) {
+                continue;
+            }
+            Lotto.push(r);
+          }
+          //先抓出特別號
+          var sno =Lotto[Lotto.length-1];
+
+          //將產生的大樂透號碼做遞增排序
+          Lotto.sort((a, b) => {
+            return a - b;
+          });
+
+          // 顯示亂數產生的大樂透號碼
+          ans.innerHTML = `大樂透號碼：${Lotto}，特別號${sno}`;
+          }
+
+
+          // 用 for 迴圈無法讓長度維持7個數字，改為while 迴圈
+          // for (var i = 0; i < 7; i++) {
+          //      //將亂數放進 r 中
+          //      var r = getRandom();
+          //     if (Lotto.includes(r) == true){
+          //         continue;
+          //     }
+          //     //判斷沒有重複的，就裝進push。
+          //     Lotto.push(r);
+          // }
+
+          console.log(Lotto);
+    </script>
+  </body>
+</html>

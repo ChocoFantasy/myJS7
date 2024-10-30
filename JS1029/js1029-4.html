@@ -7,29 +7,63 @@
   </head>
   <body>
     <script>
-      //使用filter，找出陣列中的奇數後 * 2。
+      //題目：使用filter，找出陣列中的奇數後 * 2。
       //結果：10,6,66,2
+      var arr1 = [5, 60, 3, "123", 90, true, 33, 1, 100];
+
+      //方法三
+
+      //找出陣列中的奇數值
+      var odds = arr1.filter((b) => {
+        if ((typeof b === "number") && (b % 2 === 1)) {
+          return true;
+        }
+      });
+
+      console.log(odds);
+
+      //接收 return 計算後的值 =變數.丟到 map這個方法(變數b) => {return 運算});
+      //將奇數 * 2
+      odds = odds.map((b) => {
+        return b * 2;
+      });
+
+      // map 可以做運算 return 回去。 ex. return data * 2
+      // filter 可以篩選 return 回去原本的值，但不能運算。
+
+      //方法二
+      var arr2 = []; //存放結果用
+      //找出數值的奇數*2
+      for (var i = 0; i < arr1.length; i++) {
+        if ((typeof arr2[i] === "number") & (arr1[i] % 2 === 1)) {
+          //把 arr1 丟進 arr2 陣列中
+          arr2[i] = arr1[i] * 2;
+        }
+      }
 
       //去除非數值資料
       //去除非數值的陣列資料 ==> 保留數值的資料給 arr1
-      arr1 = arr1.filter((data) => {
-        if (typeof data === "number") {
+      arr2 = arr2.filter((data) => {
+        if ((typeof data === "number") & (a % 2 === 1)) {
           //如果是數值就丟還給 arr1 這個陣列中。
           return data;
+          //return true，也會跑出一樣的結果。
         }
       });
-      //var str1 = "";
-      var arr2 = []; //存放結果用
-      for (var i = 0; i < arr1.length; i++) {
-          //找出數值的奇數*2
-          if (arr1[i] % 2 === 1) {
-            //把 arr1 丟進 arr2 陣列中
-            arr2[i] = arr1[i] * 2;
-            //str1 = arr1[i] * 2 + ',';
-          }
-          document.write(arr2[i]);
-        }
 
+      //document.write(arr2);
+
+      //方法一
+      var str1 = "";
+
+      for (var i = 0; i < arr1.length; i++) {
+        if ((typeof arr1[i] === "number") & (arr1[i] % 2 === 1)) {
+          str1 = str1 + arr1[i] * 2 + ",";
+        }
+        //str1 = arr1[i] * 2 + ',';
+      }
+
+      //document.write(str1);
     </script>
   </body>
 </html>

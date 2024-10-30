@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr1 = [1, 5, 100, 3, 30, 60, 90, 5];
+      console.log(`原陣列內容=>${arr1}`);
+      // indexOF(填寫你要找的值)
+      // 找到會顯示 它在陣列中的位置。
+      // 找不到會顯示 -1，判定它有沒有重複不是用這個方法。
+
+      //console.log(`第一個 5 的位置 => ${arr1.indexOf(5)}`);
+      //console.log(`最後一個 5 的位置 => ${arr1.lastIndexOf(5)}`);
+
+      // includes(填寫你要找的值)
+      // 找得到 true 找不到 false
+      //console.log(`5是否存在 => ${arr1.includes(100)}`);
+
+      // 練習找出 5 的位置到底有幾個?
+      //先找出是否 5 存在
+      //陣列編號位置叫做 index
+
+      if (arr1.includes(5)) {
+        //判斷完有 5 以後，開始找。
+        arr1.map((n1, index) => {
+          if (n1 === 5) {
+            console.log(index); 
+            //選擇index，這裡會顯示有 5 的位置。所以就是 1 跟 7。
+          }
+        });
+      }
+
+      /*
+      console.log(`新增前：${arr1}`);
+
+      // 新增陣列值到最後面
+      arr1.push(88);
+      console.log(`新增後：${arr1}`);
+    
+      // 新增值到最前面 => unshitf(值)
+      arr1.unshift(['a','b','c']); //如果要將值新增字串進去，要加
+      console.log(`新增後：${arr1}`);
+        */
+
+      /*
+      // 取出陣列中第一個值，第一個值會被保留
+      console.log(arr1[0]);
+      console.log(arr1);
+      // shift()=>取出陣列中第一個值，並且移除。
+      console.log(arr1.shift());
+      console.log(arr1);
+        */
+      /*
+      // 查看陣列中最後一個值
+      console.log(arr1[arr1.length - 1]);
+        
+      // pop()=>取出陣列中最後一個值，並且移除。
+      console.log(arr1.pop());
+      console.log(arr1);
+        */
+      /*
+      // 排序指令
+      console.log(`排序前：${arr1}`);
+      
+      //排序處理遞增
+      arr1.sort((a, b) => {
+        return a - b;
+      });
+      console.log(`排序後(遞增)：${arr1}`);
+      
+      //排序處理遞減
+      arr1.sort((a, b) => {
+        return b - a; // B~A 的順序
+      });
+      console.log(`排序後(遞減)：${arr1}`);
+      
+      //反轉方式去遞減
+      console.log(`反轉後的結果：${arr1.reverse()}`);
+    */
+    </script>
+  </body>
+</html>

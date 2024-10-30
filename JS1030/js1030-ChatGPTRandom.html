@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大樂透範例</title>
+  </head>
+  <body>
+    <p id="ans">這裡裝樂透號碼：</p>
+    <!--重新整理按鈕-->
+    <button type="button" onClick="window.location.reload()">重整</button>
+
+    <script>
+      function getRandom(min, max) {
+        return Math.floor(Math.random() * max  + min);
+      }
+
+      // 產生樂透號碼的函式
+      function generateLottoNumbers(count, min, max) {
+        const numbers = [];
+        while (numbers.length < count) {
+          const randomNum = getRandom(min, max);
+          if (!numbers.includes(randomNum)) {
+            numbers.push(randomNum);
+          }
+        }
+        //回傳 numbers 
+        return numbers.sort((a, b) => a - b);
+      }
+
+      // 樂透種類
+      const games = {
+        1: { name: "大樂透", mainCount: 6, mainMax: 49, specialMax: 49 },
+        2: { name: "威力彩", mainCount: 6, mainMax: 38, specialMax: 8 },
+        3: { name: "今彩539", mainCount: 5, mainMax: 39, specialMax: 0 },
+      };
+
+      // 取得使用者輸入並設定遊戲
+      const input = prompt(`請輸入 1~3 產生亂數，1 是大樂透、2 是威力彩、3 是今彩539`);
+      const game = games[input];
+
+      if (game) {
+        // 產生主號碼
+        const mainNumbers = generateLottoNumbers(game.mainCount, 1, game.mainMax);
+        let resultText = `${game.name}號碼：${mainNumbers.join(", ")}`;
+
+        // 如果有特別號，則加入
+        if (game.specialMax) {
+          const specialNumber = generateLottoNumbers(1, 1, game.specialMax);
+          resultText += `，特別號：${specialNumber}`;
+        }
+
+        // 顯示結果
+        document.getElementById("ans").innerHTML = resultText;
+      } else {
+        alert("請輸入 1, 2 或 3 來選擇遊戲類型。");
+      }
+    </script>
+  </body>
+</html>

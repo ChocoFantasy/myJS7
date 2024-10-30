@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大樂透範例</title>
+  </head>
+  <body>
+    <p id="ans">這裡裝樂透號碼：</p>
+    <!--重新整理按鈕-->
+    <button type="button" onClick="window.location.reload()">重整</button>
+
+    <script>
+      //輸入視窗 1 → 大樂透 (1~49號) 6 + 特 1
+      //輸入視窗 2 → 威力彩 (1~38號) 6 + 特 1 (1~8號)
+      //輸入視窗 3 → 今彩539 (1~39號)  + 沒有特別號
+
+      //函式傳參數去設定區間 min 最小值~ max 最大值
+
+      function getRandom(min, max) {
+        var RandomN = Math.floor(Math.random() * max + 1);
+        return RandomN;
+      }
+
+      //彈出輸入視窗
+      var input = prompt(
+        `請輸入 1~3 產生亂數，1 是大樂透、2 是威力彩、3 是今彩539`
+      );
+      //宣告裝樂透數字的陣列;
+      var Lotto = [];
+      if (input == 1) {
+        //執行大樂透
+        while (Lotto.length < 6) {
+          // 取得亂數，將亂數放進 r 中
+          var r = getRandom(1, 49);
+          // 若數字不重複，則推入陣列
+          if (Lotto.includes(r)) {
+            continue;
+          }
+          Lotto.push(r);
+        }
+        //特別號，特別再裝一個陣列
+        var sno = [];
+        while (sno.length < 1) {
+          // 取得亂數，將亂數放進 r 中
+          var r = getRandom(1, 49);
+          // 若數字不重複，則推入陣列
+          if (Lotto.includes(r)) {
+            continue;
+          }
+          sno.push(r);
+        }
+
+        //將第一區產生的大樂透號碼，做遞增排序
+        Lotto.sort((a, b) => {
+          return a - b;
+        });
+
+        // 顯示亂數產生的大樂透號碼
+        ans.innerHTML = `大樂透號碼：${Lotto}，特別號${sno}`;
+      } else if (input == 2) {
+        //執行威力彩
+
+        while (Lotto.length < 6) {
+          // 取得亂數，將亂數放進 r 中
+          var r = getRandom(1, 38);
+          // 若數字不重複，則推入陣列
+          if (Lotto.includes(r)) {
+            continue;
+          }
+          Lotto.push(r);
+        }
+
+        //特別號，特別再裝一個陣列
+        var sno = [];
+        while (sno.length < 1) {
+          // 取得亂數，將亂數放進 r 中
+          var r = getRandom(1, 8);
+          // 若數字不重複，則推入陣列
+          if (Lotto.includes(r)) {
+            continue;
+          }
+          sno.push(r);
+        }
+
+        //將第一區塊產生的號碼做遞增排序
+        Lotto.sort((a, b) => {
+          return a - b;
+        });
+
+        // 顯示亂數產生的號碼
+        ans.innerHTML = `威力彩號碼：${Lotto}，特別號${sno}`;
+      } else if (input == 3) {
+        while (Lotto.length < 5) {
+          // 取得亂數，將亂數放進 r 中
+          var r = getRandom(1, 39);
+          // 若數字不重複，則推入陣列
+          if (Lotto.includes(r)) {
+            continue;
+          }
+          Lotto.push(r);
+        }
+
+       //今彩539 沒有特別號
+        //將第一區塊產生的號碼做遞增排序
+        Lotto.sort((a, b) => {
+          return a - b;
+        });
+
+        // 顯示亂數產生的號碼
+        ans.innerHTML = `今彩539號碼：${Lotto}`;
+      }
+
+      //   // 亂數產生大樂透號碼
+      //   // 1-49號產生6個號碼(不重複)
+      //   for (var i = 0; i < 6; i++) {
+      //     //存放
+      //     var lott = [];
+      //     //亂數
+      //     var no = Math.floor(Math.random() * 49) + 1;
+      //     //每一次得到的亂數丟給陣列
+      //     if (lott.includes(no) == true) {
+      //       //有找到 => 重複
+      //       //這次的迴圈不算，所以要先 i-1
+      //       i = i - 1;
+      //       continue;
+      //     } else {
+      //       // 沒找到 => 沒有重複
+      //       lott.push(no);
+      //     }
+      //   }
+
+      //   // 1-49號產生1個特別號(不可以跟前6個號碼重覆)
+      //   //開一個迴圈，檢查特別號是否有重複，沒有重複就加進sno。
+      //   while (true) {
+      //     //產生亂數
+      //     var sno = Math.floor(Math.random() * 49) + 1;
+      //     if (lott.includes(sno)) {
+      //       // 有找到 => 重複
+      //       continue;
+      //     } else {
+      //       // 沒找到 => 沒有重複
+      //       lott.push(sno);
+      //       //結束迴圈：
+      //       break;
+      //     }
+      //   }
+
+      //   console.log(`第一區：${lott}，特別號：${sno}`);
+    </script>
+  </body>
+</html>
