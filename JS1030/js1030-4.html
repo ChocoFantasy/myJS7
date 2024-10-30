@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>樂透亂數</title>
+  </head>
+  <body>
+    <script>
+      // 建立一個通用的函式可以產生號碼
+      function getLottNum(lottName, count, max, secFlag, secMax) {
+        var lott = [];
+        
+        // 第一區號碼產生
+        for (var i = 0; i < count; i++) {
+          var no = Math.floor(Math.random() * max) + 1;
+          if (lott.includes(no)) {
+            i--;
+            continue;
+          } else {
+            lott[i] = no;
+          }
+        }
+        console.log(`${lottName} 第一區: ${lott}`);
+
+        // 第二區特別號碼產生
+        if (secFlag === "Y") {
+          let sno;
+          while (true) {
+            sno = Math.floor(Math.random() * secMax) + 1;
+            // 威力彩的特別號可以與第一區重複
+            if (lottName === "威力彩" || !lott.includes(sno)) {
+              break;
+            }
+          }
+          console.log(`${lottName} 第二區: ${sno}`);
+        }
+      }
+
+      // 呼叫函式並傳遞參數
+      var gameNo = window.prompt("請輸入遊戲代號：1 大樂透 2 威力彩 3 今彩");
+      if (gameNo === "1") {
+        getLottNum("大樂透", 6, 49, "Y", 49);
+      } else if (gameNo === "2") {
+        getLottNum("威力彩", 6, 38, "Y", 8);
+      } else if (gameNo === "3") {
+        getLottNum("今彩", 5, 39, "N", 0);
+      } else {
+        console.log("代號錯誤");
+      }
+    </script>
+  </body>
+</html>

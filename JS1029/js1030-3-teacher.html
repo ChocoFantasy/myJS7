@@ -28,18 +28,17 @@
       }
 
       // 第二區號碼
-
-      if (secFlag === "Y") {
+      if (secFlag === 'Y') {
         while (true) {
           //先判斷是不是需要特別號
           //是的話，產生一個亂數
           var sno = Math.floor(Math.random() * secMax) + 1;
-          if (lottName === "威力彩") {
+          if (lottName === '威力彩') {
             //威力彩 不需要檢查重複值
             break;
           }
           //如果是大樂透的話，特別號不可以跟第一區重複
-          if (lottName === "大樂透") {
+          if (lottName === '大樂透') {
             if (lott.includes(sno)) {
               continue;
             } else {
@@ -47,23 +46,23 @@
               break;
             }
           }
-          console.log(`${lottName}第二區:${sno}`);
         }
+        console.log(`${lottName} 第二區: ${sno}`);
       }
 
       // 呼叫函式，且傳參數
       var gameNo = window.prompt("請輸入遊戲代號：1 大樂透 2 威力彩 3 今彩");
-      if (gameNo === "1") {
+      if (gameNo === '1') {
         // 產生大樂透號碼
-        getLottNum("大樂透", 6, 49, "Y", 49);
-      } else if (gameNo === "2") {
+        getLottNum('大樂透', 6, 49, 'Y', 49);
+      } else if (gameNo === '2') {
         // 產生威力彩號碼
-        getLottNum("威力彩", 6, 38, "Y", 8);
-      } else if (gameNo === "3") {
+        getLottNum('威力彩', 6, 38, 'Y', 8);
+      } else if (gameNo === '3') {
         //產生今彩號碼
-        getLottNum("今彩", 5, 39, "N", 0);
+        getLottNum('今彩', 5, 39, 'N', 0);
       } else {
-        console.log("代號err");
+        console.log('代號err');
       }
     </script>
   </body>
