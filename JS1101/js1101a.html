@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>樂透亂數</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>追加題目_</title>
+</head>
+<body>
+    <!-- 產生大樂透號碼+特別號1000組（每一組號碼不重複），最後統計出1～49的個別號碼的次數 -->
     <script>
-      // 建立一個通用的函式可以產生號碼
-      //會變動的值全部丟給 function
-      //max 第一區最大值 count 第一區產生幾個樂透 lottName 樂透名稱 secCount 特別號要幾個數字 sec特別號最大值 secFlag 判斷是否有特別號
-      //function () 可以先給參數預設值
-      //請注意 function 的變數，請在裡面執行，不要在外面呼叫這裡變數，會沒有辦法執行。
+        // 1.產出亂數_(大樂透號碼(6)+特別號) 的 function
+        // 2.要產出 1000 組
 
-      function getLottNum(lottName, count, max, secFlag, secMax) {
-        var lott = [];
+        function getLottNum(lottName, count, max, secFlag, secMax) {
+        var lott = []; //放亂數樂透的號碼
         for (var i = 0; i < count; i++) {
           //亂數
           var no = Math.floor(Math.random() * max) + 1;
@@ -52,20 +50,16 @@
         }
       }
 
+
       // 呼叫函式，且傳參數
-      var gameNo = window.prompt("請輸入遊戲代號：1 大樂透 2 威力彩 3 今彩");
+      var gameNo = window.prompt("請輸入遊戲代號：1 大樂透");
       if (gameNo === "1") {
         // 產生大樂透號碼
         getLottNum("大樂透", 6, 49, "Y", 49);
-      } else if (gameNo === "2") {
-        // 產生威力彩號碼
-        getLottNum("威力彩", 6, 38, "Y", 8);
-      } else if (gameNo === "3") {
-        //產生今彩號碼
-        getLottNum("今彩", 5, 39, "N", 0);
-      } else {
-        console.log("代號err");
       }
+
+
     </script>
-  </body>
+
+</body>
 </html>
