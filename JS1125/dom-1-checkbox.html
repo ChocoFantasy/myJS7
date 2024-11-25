@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核取方塊BOX</title>
+</head>
+
+<body>
+    <ul id="ul-one">
+        <li id="one" class="subjects">HTML</li>
+        <li id="two" class="subjects">CSS</li>
+        <li id="three" class="subjects">JavaScript</li>
+        <li id="four" class="subjects">React</li>
+    </ul>
+
+    <ul>
+        <li class="drinks">美式</li>
+        <li class="drinks">拿鐵</li>
+        <li class="drinks">紅茶</li>
+    </ul>
+
+
+    <script>
+        // 取得 HTML 標籤內容
+        // let subjects = document.getElementsByTagName('li');
+        // 顯示所有 ul 
+        let subjects= document.querySelectorAll('ul'); 
+        // 使用類別名稱取得標籤內容
+        // let subjects = document.getElementsByClassName('drinks');
+        // //console.log(subjects);
+         for (let i = 0; i < subjects.length; i++) {
+            console.log(subjects[i].textContent);
+         }
+
+        // 使用 id 名稱取得標籤內容
+        // let subject =document.getElementById('two').textContent;
+        // let subject = document.querySelector('#two').textContent;
+        // let subject = document.querySelector('#two').innerText;
+        // querySelector => 用再唯一性，例如：id
+        // querySelectorAll => 用在非唯一性，例如：class,HTML 標籤
+        console.log(subject);
+
+    </script>
+</body>
+
+</html>
